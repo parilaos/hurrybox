@@ -23,8 +23,15 @@ io.on('connection', (socket) => {
     //     time:'44'
     // });
 
-    socket.on('Courier', (courierOrder) => {
-        console.log('Courier', courierOrder)
+    socket.on('createCourierOrder', (courierOrder) => {
+        console.log('createCourierOrder', courierOrder)
+        io.emit('newCourierOrder',{
+            user:courierOrder.user,
+            origin: courierOrder.origin,
+            destination:courierOrder.destination,
+            item:courierOrder.item,
+            time:new Date().getTime()
+        });
     });
 
     // socket.on('disconnect', () => {
