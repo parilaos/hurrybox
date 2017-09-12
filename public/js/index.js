@@ -13,9 +13,9 @@ socket.on('connect',function() {
     });
 });
 
-socket.on('disconnect', function () {
-    console.log('Disconnected')
-});
+// socket.on('disconnect', function () {
+//     console.log('Disconnected')
+// });
 
 socket.on('courierOrder', function (courier) {
     console.log('εντολή μεταφοράς', courier)
