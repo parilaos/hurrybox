@@ -13,11 +13,23 @@ app.set('port', (process.env.PORT || 3000));
 app.use(express.static(publicPath));
 
 io.on('connection', (socket) => {
-    console.log('new user');
 
-    socket.on('disconnect', () => {
-        console.log('user left');
+    // socket.emit('courierOrder', {
+    //     user:'test',
+    //     from:'paris',
+    //     origin: 'ilion',
+    //     destination:'athnes',
+    //     item:'box',
+    //     time:'44'
+    // });
+
+    socket.on('Courier', (courierOrder) => {
+        console.log('Courier', courierOrder)
     });
+
+    // socket.on('disconnect', () => {
+    //     console.log('user left');
+    // });
 });
 
 server.listen(app.get('port'), () => {
